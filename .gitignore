@@ -1,0 +1,10 @@
+# Ignore Following Folders
+Airfoils/
+Corrected_Airfoils/
+Errors/
+Optimized_Airfoils/
+Presentations/
+Results/
+
+#Xfoil.exe should be downloaded manually
+xfoil.exe
