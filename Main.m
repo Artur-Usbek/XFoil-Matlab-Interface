@@ -3,34 +3,25 @@
 % mittelung über mehrere Punkte
 
 %% Start
-clc; clear all; close all;
+clc; 
+clear all; 
+close all;
 addpath("./Matlab_Functions")
 
 
-Solution = calculateAirfoil()
-
 %% Options
-downloaded  = true;
+downloaded  = false;
 corrected   = true;
 %refined     = false;
 calculated = true;
 
 %% Download Airfoils in parallel
 if ~downloaded
-    %because of the pause of 1 sec it is most efficient  to download from 3
-    %servers in parallel
-    parpool(3);
-    parfor core = 1:3
-        if core == 1
-          download_Selig(); %download selig database
-        elseif core == 2
-          download_Delft(); %download delft database
-        elseif core == 3
-          download_AirFoilTools(); %download Database from AirfoilTools
-        end
-    end
+    Downloader.FullDownload();
 end
 
+
+%Solution = calculateAirfoil()
 
 %% Correct
 % fill/sort and arrange Coordinates in Selig Format
