@@ -21,7 +21,6 @@ if ~downloaded
 end
 
 
-%Solution = calculateAirfoil()
 
 %% Correct
 % fill/sort and arrange Coordinates in Selig Format
@@ -29,6 +28,7 @@ if ~corrected
     correct();
 end
 
+%Solution = calculateAirfoil()
 %% refine
 %if ~refined
 %   refine();

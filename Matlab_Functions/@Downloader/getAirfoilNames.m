@@ -24,7 +24,8 @@ function airfoil_Names = getAirfoilNames(source)
                 selector        = "a";
                 subtrees        = findElement(tree, selector);
                 attribute       = "href";
-                airfoil_Names   = getAttribute(subtrees(6:end), attribute); %not airfoil data from 1-5 
+                airfoil_Names   = getAttribute(subtrees, attribute); %not airfoil data from 1-5 
+                airfoil_Names(~contains(airfoil_Names, ".dat")) = [];
                 [~, airfoil_Names, ~] = arrayfun(@fileparts, airfoil_Names);
                 
         case 'AFT'
