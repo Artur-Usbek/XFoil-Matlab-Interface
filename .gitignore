@@ -6,5 +6,9 @@ Optimized_Airfoils/
 Presentations/
 Results/
 
-#Xfoil.exe should be downloaded manually
+# Xfoil.exe should be downloaded manually
 xfoil.exe
+
+#
+*.inp
+*.pol

@@ -9,12 +9,9 @@ function correct()
 
 	%% Create Folders
 	m_File_Path                 = fileparts(mfilename('fullpath'));
-	airfoils_Folder             = [m_File_Path, '\..\Airfoils'];
-	corrected_Airfoils_folder   = [m_File_Path, '\..\Corrected_Airfoils'];
-	mkdir(corrected_Airfoils_folder);
-
-
-	%% Correction Start
+	airfoils_Folder             = [m_File_Path, '\..\..\Airfoils'];
+	corrected_Airfoils_folder   = [m_File_Path, '\..\..\Corrected_Airfoils'];
+	[~, ~] = mkdir(corrected_Airfoils_folder);
 
 	%% Get all airfoil files
 	airfoils  = dir(fullfile(airfoils_Folder, '*.dat'));
@@ -57,7 +54,6 @@ function correct()
 		end
 		
 		%% Write data
-		corrected_name      = strrep(foil(1:end-4),".","_") + foil(end-3:end)
 		corrected_name      = strrep(foil(1:end-4),"-","_") + foil(end-3:end)
 		corrected_foil      = fullfile(corrected_Airfoils_folder, corrected_name);
 		fileID              = fopen(corrected_foil, 'w');

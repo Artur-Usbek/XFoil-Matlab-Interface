@@ -1,4 +1,4 @@
-function variable = create_XFoil_Setup(variable)
+function variable = create_Setup(obj, variable)
     %% plotting
     variable.Visible            = false;
 

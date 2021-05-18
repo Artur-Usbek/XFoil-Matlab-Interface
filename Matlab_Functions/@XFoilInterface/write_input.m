@@ -1,5 +1,4 @@
-function write_xfoil_input(x_foil_input_name, polar_name, ... 
-                            airfoil_path, Setup)
+function write_input(obj, x_foil_input_name, polar_name, airfoil_path, Setup)
 
     %% full paths
     %[folder, ~]     = fileparts(mfilename("fullpath"));
@@ -16,15 +15,15 @@ function write_xfoil_input(x_foil_input_name, polar_name, ...
      
                         
     %% Start of XFoil Input
-    x_input_fid = fopen(['..\', x_foil_input_name], 'w');   % creat Xfoil inputfile  
+    x_input_fid = fopen(['..\..\', x_foil_input_name], 'w');   % creat Xfoil inputfile  
     
     %% Plot options
     if ~Setup.Visible
-         fprintf(x_input_fid,["PLOP\rG\r\r"]);
+         fprintf(x_input_fid, ["PLOP\rG\r\r"]);
     end
     
     %% Load Airfoil
-    fprintf(x_input_fid, ['LOAD ', airfoil_path]);   % load airfoil from corrected Airfoils folder
+    fprintf(x_input_fid, 'LOAD '+ airfoil_path);   % load airfoil from corrected Airfoils folder
     fprintf(x_input_fid, '\r');
     
     
@@ -120,7 +119,7 @@ function write_xfoil_input(x_foil_input_name, polar_name, ...
     
     %% Initiate Saving
     fprintf(x_input_fid, 'PACC\r'); % Plot Accumilationfor savin in right format
-    fprintf(x_input_fid, [polar_name, '\r']); %save file name
+    fprintf(x_input_fid, polar_name + '\r'); %save file name
     fprintf(x_input_fid, '\r');                 %no dump file name
     
     %% Start Calculation

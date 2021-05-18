@@ -1,4 +1,4 @@
-function error = checkOutput(proc, outputReader, error_file)
+function error = checkOutput(obj, proc, outputReader, error_file)
 
     error               = 1;
     tLimit              = 360;
