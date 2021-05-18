@@ -1,7 +1,7 @@
 function [foil_Coord] = get_Coordinates(foil_Path)
 % foil_Path: str            is the Path to the *.dat file
 % foil_Coord: table         returns table with X and Y coordinates
-%% Extracting Coordinated from Airfoil File
+%% Extracting Coordinates from Airfoil File
 
     %% Initialize
     X = [];
